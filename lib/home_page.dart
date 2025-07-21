@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isFavorite = false;
   int counter = 0;
+  double rateText =4.0;
 
   @override
   Widget build(BuildContext context) {
@@ -72,11 +73,17 @@ class _HomePageState extends State<HomePage> {
                             allowHalf: true,
                             allowClear: true,
                             initialValue: 4.0,
+                            onChange: (double rate){
+                              setState(() {
+                                rateText = rate;
+                              });
+
+                            },
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 5),
                             child: Text(
-                              '4.0',
+                              '$rateText',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontFamily: primaryFont,
